@@ -2,11 +2,12 @@ FROM python:3.9
 
 WORKDIR /app
 
-# Copy app code and requirements
+# Copy requirements and install
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /app
+# Copy all app code
+COPY . .
 
 EXPOSE 5000
 CMD ["python", "run.py"]
